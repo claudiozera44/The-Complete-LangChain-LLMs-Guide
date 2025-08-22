@@ -49,25 +49,15 @@ complete_chain_with_results_from_both_chains = ({
         "a": itemgetter("a"),
         "b": itemgetter("b"),
         "c": first_chain
-        } 
-    | RunnablePassthrough.assign(d=second_chain)
-    )
-
-# also with the intermediate results - take 2
-complete_chain_with_results_from_both_chains_v2 = (
-        a = itemgetter("a"),
-        b = itemgetter("b"),
-        c = first_chain
+        }
     | RunnablePassthrough.assign(d=second_chain)
     )
 
 result1 = complete_chain_with_results_only_from_second_chain.invoke({'a': 2, 'b':3})
 result2 = complete_chain_with_results_from_both_chains.invoke({'a': 2, 'b':3})
-result3 = complete_chain_with_results_from_both_chains_v2.invoke({'a': 2, 'b':3})
 
-#print(result1)
+print(result1)
 print("------")
-#print(result2)
-print(result3)
+print(result2)
 print("====== now quitting ======")
 quit()
