@@ -1,6 +1,8 @@
 langchain==0.3.27
 langchain-community==0.3.27
 langchain_openai==0.3.27
+langgraph
 openai==1.99.0
+pypdf
 python-dotenv==1.0.0
 operators==1.0.0
